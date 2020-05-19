@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import Table from './Table'
 
-class App extends Component {
-  render() {
 
-    const characters = [
+class App extends Component {
+  state = {
+    characters: [
       {
         name: 'Sarah',
         job: 'UX',
@@ -21,7 +21,23 @@ class App extends Component {
         name: 'Dennis',
         job: 'Barber',
       },
-    ]
+    ],
+  }
+
+  removeCharacter = index => {
+    const { characters } = this.state
+
+    this.setState({
+      characters: characters.filter((character, i) => {
+        return i !== index
+      }),
+    })
+  }
+
+
+
+  render() {
+    const { characters } = this.state
 
     return (
       <div className="container">
