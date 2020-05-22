@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Table from './Table'
+import Form from './Form'
 
 
 class App extends Component {
@@ -18,13 +19,22 @@ class App extends Component {
   }
 
 
+  handleSubmit = character => {
+    this.setState({ characters: [...this.state.characters, character] })
+  }
 
   render() {
     const { characters } = this.state
 
     return (
       <div className="container">
-        <Table characterData={characters} removeCharacter={this.removeCharacter} />
+        <h1>Add character with a name and a job to the table</h1>
+        <Table
+          characterData={characters}
+          removeCharacter={this.removeCharacter}
+        />
+        <h3>Add New</h3>
+        <Form handleSubmit={this.handleSubmit} />
       </div>
     )
   }
