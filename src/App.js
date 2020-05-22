@@ -28,10 +28,12 @@ class App extends Component {
 
     return (
       <div className="container">
+        <h1>Add character with a name and a job to the table</h1>
         <Table
           characterData={characters}
           removeCharacter={this.removeCharacter}
         />
+        <h3>Add New</h3>
         <Form handleSubmit={this.handleSubmit} />
       </div>
     )
